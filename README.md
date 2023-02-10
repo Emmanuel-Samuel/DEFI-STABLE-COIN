@@ -1,5 +1,5 @@
-# ERC20 Token
-> A simple ERC20 token deployable to the Mainnet.
+# Defi-Stable-Coin
+> A decentralized stable coin deployable to the Mainnet.
 
 ## Table of Contents
 - [Decentralized Stable Coin](#Stable Coin)
