@@ -14,23 +14,30 @@ import { WadLib } from "./WadLib.sol";
 /// @notice This Stable coin can be transfered, deposited, minted and burn
 /// @dev This Contract was built on a previous ERC20 Token Contract created. 
 
+/// Stablecoin contract inherits from the ERC20 contract
 contract StableCoin is ERC20 {
     /// @notice All our State Variables are being declared here
     /// @return StateVariables
     
+    /// imports the wadlib library and allows the uint256 data type
     using WadLib for uint256;
-
+    /// defines a custom error that can be used in the contract
     error InitialCollateralRatioError(string message, uint256 minimumDepositAmount);
     
+    /// state variables declared
     DepositorCoin public depositorCoin;
     Oracle public oracle;
     uint256 public feeRatePercentage;
     WadLib.Wad public dpcInUsdPrice;
     uint256 public constant INITIAL_COLLATERAL_RATIO_PERCENTAGE = 10;
 
-    constructor(uint256 _feeRatePercentage, Oracle _oracle) 
+    /// constructor takes in two arguments
+    constructor(uint256 _feeRatePercentage, Oracle _oracle)
+        /// calls on the constructor of the ERC20 contract and passes two string arguments 
         ERC20("StableCoin", "STC") {
+        /// sets values for the feeRatePercentage
         feeRatePercentage = _feeRatePercentage;
+        /// sets values for the oracle
         oracle = _oracle;
     }
 
